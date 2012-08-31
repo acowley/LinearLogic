@@ -1,0 +1,8 @@
+-R . LinearLogic
+Sig.v
+LinProp.v
+LinLog.v
+PermutationHelpers.v
+Context.v
+BlocksWorldExample1.v
+
