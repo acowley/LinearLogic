@@ -1,8 +1,10 @@
 Require Import Sig.
-Module LinLog(Term:Sig).
 Require Export List.
 Require Export Permutation.
+Require Import Setoid.
+
 Require LinProp.
+Module LinLog(Term:Sig).
 Module LinPropTerm := LinProp.LinProp Term.
 Import Term.
 Export LinPropTerm.
@@ -51,13 +53,12 @@ LinElim : list LinProp -> LinProp -> Prop :=
 | ZeroElim    : forall Γ A, Γ ++ [⊥] ⊢ε A
 where "Γ ⊢ε C" := (LinElim Γ C).
 
-Implicit Arguments PermContext [Γ Δ C].
-Implicit Arguments Cut [Γ Δ A B].
+Arguments PermContext [Γ Δ C].
+Arguments Cut [Γ Δ A B].
 
 Create HintDb linlog.
-Hint Constructors LinIntro LinElim : linlog.
+#[local] Hint Constructors LinIntro LinElim : linlog.
 
-Require Import Setoid.
 Add Parametric Morphism : LinIntro with
 signature (@Permutation LinProp) ==> Logic.eq ==> iff as LinIntro_morph.
 intros X Y HPerm C. split; intros H. inversion H; subst; try (eauto with linlog).

@@ -3,11 +3,13 @@
    in this module are the tactics [product_to_context],
    [break_context_at], and [permute_context]. *)
 Require Import Sig.
-Module Context(Term:Sig).
 Require LinLog.
+Require Export PermutationHelpers.
+Module Context(Term:Sig).
 Module LinLogTerm := LinLog.LinLog Term.
 Export LinLogTerm.
-Require Export PermutationHelpers.
+Import List Permutation.
+Import ListNotations.
 
 Definition Context := list LinProp.
 
@@ -78,7 +80,7 @@ Ltac product_to_context :=
 (** [break_at n lst] returns a pair whose first component is no more
    than the first [n] elements of [list], and whose second component
    is the remaining elements of [lst]. *)
-Fixpoint break_at {A} (n:nat) (L:list A) :=
+Definition break_at {A} (n:nat) (L:list A) :=
   let fix go n pre l :=
     match n with
     | 0 => (rev pre, l)

@@ -1,5 +1,8 @@
+Require Import List.
+Import ListNotations.
+
 (** Basic table-top blocks manipulation demonstration. *)
-Variable (Block:Type).
+Parameter (Block:Type).
 
 (** First define a type to capture the language used to describe the
    world. These are the propositions that apply to our domain. *)
