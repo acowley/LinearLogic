@@ -1,7 +1,7 @@
 (** From the Coq manual, updated to work with the current (8.4)
    standard library *)
-Require Import List.
-Require Import Permutation.
+From Stdlib Require Import List.
+From Stdlib Require Import Permutation.
 Ltac permutAux n :=
 match goal with
 | |- (Permutation ?l ?l) => reflexivity

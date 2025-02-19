@@ -9,10 +9,10 @@ The design of roshask,"** in _Proceedings of the IEEE/RJS
 International Conference on Intelligent Robots and Systems (IROS)_,
 2011. [pdf](http://www.seas.upenn.edu/~acowley/papers/TowardsLinear.pdf)
 
-Tested with [Coq](http://coq.inria.fr) 8.14.
+Tested with [the Rocq Prover](https://rocq-prover.org/) 9.0.
 
 An example command to build the documentation,
 
-    coqdoc --no-lib-name -d doc *.v --utf8 --no-index
+    rocq doc --no-lib-name -d doc *.v --utf8 --no-index
 
 (this requires that the directory `doc` exists).
