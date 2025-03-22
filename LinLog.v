@@ -1,7 +1,7 @@
 Require Import Sig.
-Require Export List.
-Require Export Permutation.
-Require Import Setoid.
+From Stdlib Require Export List.
+From Stdlib Require Export Permutation.
+From Stdlib Require Import Setoid.
 
 Require LinProp.
 Module LinLog(Term:Sig).
