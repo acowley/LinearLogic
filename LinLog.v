@@ -61,18 +61,21 @@ Create HintDb linlog.
 
 Add Parametric Morphism : LinIntro with
 signature (@Permutation LinProp) ==> Logic.eq ==> iff as LinIntro_morph.
+Proof.
 intros X Y HPerm C. split; intros H. inversion H; subst; try (eauto with linlog).
 symmetry in HPerm. apply PermContextι with (Δ:=X) in H; assumption.
 Qed.
 
 Add Parametric Morphism : LinElim with
 signature (@Permutation LinProp) ==> Logic.eq ==> iff as LinElim_morph.
+Proof.
 intros X Y HPerm C. split; intros H. inversion H; subst; try (eauto with linlog).
 symmetry in HPerm. apply PermContextε with (Δ:=X) in H; assumption.
 Qed.
 
 Add Parametric Morphism : LinCons with
 signature (@Permutation LinProp) ==> Logic.eq ==> iff as LinCons_morph.
+Proof.
 intros X Y HPerm C. split; intros H; inversion H.
 rewrite HPerm in H0. apply Intro. assumption.
 rewrite HPerm in H0. apply Elim. assumption.
